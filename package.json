@@ -1,0 +1,49 @@
+{
+  "name": "amba-test",
+  "version": "1.0.0",
+  "description": "useful lib",
+  "scripts": {
+    "start": "node ./bin/www",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lightsoo/ambaTest.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lightsoo/ambaTest/issues"
+  },
+  "homepage": "https://github.com/lightsoo/ambaTest#readme",
+  "dependencies": {
+    "body-parser": "~1.15.1",
+    "cookie-parser": "~1.4.3",
+    "cool-ascii-faces": "1.3.3",
+    "crypto": "0.0.3",
+    "debug": "~2.2.0",
+    "ejs": "~2.4.1",
+    "engine.io": "^1.6.11",
+    "express": "~4.13.4",
+    "fs": "0.0.1-security",
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.0",
+    "gulp-jsdoc3": "^1.0.0",
+    "gulp-minify-html": "^1.0.6",
+    "gulp-uglify": "^2.0.0",
+    "jsdoc": "^3.4.1",
+    "jwt-simple": "^0.5.0",
+    "morgan": "~1.7.0",
+    "multer": "^1.2.0",
+    "path": "^0.12.7",
+    "pg": "4.5.6",
+    "pg-promise": "^5.3.3",
+    "primus": "^6.0.3",
+    "redis": "^2.6.2",
+    "serve-favicon": "~2.3.0",
+    "showdown": "^1.4.3",
+    "stylus": "0.54.5",
+    "under_score": "^0.1.0"
+  }
+
+}

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
+    <meta http-Equiv="Cache-Control" Content="no-cache"/>
+    <META HTTP-EQUIV="Pragma" CONTENT="no-cache">
+    <META HTTP-EQUIV="Expires" CONTENT="0">
+    <title>AMBA</title>
+
+
+    <link href="//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.css" rel="stylesheet" type="text/css">
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.css" rel="stylesheet">
+    <link href="//cdnjs.cloudflare.com/ajax/libs/summernote/0.8.2/summernote.css" rel="stylesheet">
+    <style type="text/css">
+        html, body {
+            height: 100%;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+
+    <script data-main="/main" src="/javascripts/require.js"></script>
+
+    <script>
+        // read configuration fist
+        require(['main'], function () {
+            require(['jquery', 'underscore'], function () {
+                require(['jqueryUi', 'primus', 'amba', 'ambaUtils'], function () {
+
+                    $(document).ready(function () {
+
+                        var path = AB.getParameter('app');
+                        var cid = AB.getParameter('cid');
+                        if (!path && !cid) {
+                            div().append().text('Please make first application');
+                            return;
+                        } else if (path === "viewer" || cid) {
+                            // display loading bar until loading finish
+                            var loadingbar = div().image('../images/loadingbar-green.gif').append();
+                            var parentWidth = loadingbar.parentWidth(), parentHeight = loadingbar.parentHeight();
+                            var size = Math.max(50, Math.min(parentWidth, parentHeight) / 8);
+                            var marginLeft = (parentWidth - size) / 2, marginTop = (parentHeight - size) / 2;
+                            loadingbar.size(size, size).marginLeft(marginLeft).marginTop(marginTop);
+                            require(['/module/viewer.js'], function (viewer) {
+                                viewer.run(cid, function () {
+                                    loadingbar.remove();
+                                });
+                            });
+                            return;
+                        }
+                        AB.loadScript('/app/' + path + '.js');
+                    });
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+</body>
+</html>
