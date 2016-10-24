@@ -7,4 +7,4 @@ public/dist
 docs/
 datas/
 public/images
-config.json
+#config.json
